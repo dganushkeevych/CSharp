@@ -26,7 +26,7 @@ namespace RarionalInteger
             INumber sum = task.Sum();
             streamWriter.WriteLine($"Sum : {sum}");
 
-            TaskNum task1 = task.CLone() as TaskNum;
+            TaskNum task1 = task.Clone() as TaskNum;
             //TaskNum.OutputData(streamWriter, task);
             INumber avg = task1.Average();
             INumber dobutok = task1.Dobutok();

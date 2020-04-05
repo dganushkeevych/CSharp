@@ -59,7 +59,7 @@ namespace RationalIntegerUnitTest
         {
             TaskNum task = new TaskNum();
             GetData(task);
-            TaskNum cloneTask = task.CLone() as TaskNum;
+            TaskNum cloneTask = task.Clone() as TaskNum;
 
             Assert.AreEqual(task.numbers.Count, cloneTask.numbers.Count);
         }

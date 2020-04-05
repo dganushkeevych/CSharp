@@ -95,10 +95,9 @@ namespace RationalInteger
             }
         }
 
-        public ICloneable CLone()
+        public object Clone()
         {
-            TaskNum newTask = this;
-            return newTask;
+            return new TaskNum(this.numbers);
         }
 
     }
