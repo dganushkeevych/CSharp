@@ -16,79 +16,33 @@ namespace RationalInteger
             number = Number;
         }
 
+        public RationalNumber DoRationalFromInteger()
+        {
+            return new RationalNumber(this.number, 1);
+        }
+
         public INumber Adding(INumber number)
         {
-            if (number.GetType() == typeof(IntegerNumber))
-            {
-                var num = number as IntegerNumber;
-                return new IntegerNumber(this.number + num.number);
-            }
-            else if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                return new RationalNumber(this.number * num.denominator + num.numerator, num.denominator);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as IntegerNumber;
+            return new IntegerNumber(this.number + num.number);
         }
 
         public INumber Substraction(INumber number)
         {
-            if (number.GetType() == typeof(IntegerNumber))
-            {
-                var num = number as IntegerNumber;
-                return new IntegerNumber(this.number - num.number);
-            }
-            else if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                var num1 = new RationalNumber(this.number * num.denominator, num.denominator);
-                return num1.Substraction(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as IntegerNumber;
+            return new IntegerNumber(this.number - num.number);
         }
 
         public INumber Division(INumber number)
         {
-            if (number.GetType() == typeof(IntegerNumber))
-            {
-                var num = number as IntegerNumber;
-                return new IntegerNumber(this.number / num.number);
-            }
-            else if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                var num1 = new RationalNumber(this.number, 1);
-                return num1.Division(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as IntegerNumber;
+            return new IntegerNumber(this.number / num.number);
         }
 
         public INumber Multiplication(INumber number)
         {
-            if (number.GetType() == typeof(IntegerNumber))
-            {
-                var num = number as IntegerNumber;
-                return new IntegerNumber(this.number * num.number);
-            }
-            else if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                var num1 = new RationalNumber(this.number, 1);
-                return num1.Multiplication(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as IntegerNumber;
+            return new IntegerNumber(this.number * num.number);
         }
 
         public override string ToString() => $"{number}";

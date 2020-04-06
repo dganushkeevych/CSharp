@@ -11,11 +11,11 @@ namespace RationalIntegerUnitTest
     {
         public void GetData(TaskNum task)
         {
-            task.numbers.Add(new IntegerNumber(7));
-            task.numbers.Add(new IntegerNumber(8));
-            task.numbers.Add(new IntegerNumber(9));
+            task.numbers.Add(new RationalNumber(7, 1));
+            task.numbers.Add(new RationalNumber(8, 1));
+            task.numbers.Add(new RationalNumber(9, 1));
             task.numbers.Add(new RationalNumber(7, 8));
-            task.numbers.Add(new RationalNumber(9, 10)); 
+            task.numbers.Add(new RationalNumber(9, 10));
         }
 
         [TestMethod]
@@ -65,6 +65,17 @@ namespace RationalIntegerUnitTest
         }
 
         [TestMethod]
+        public void DoRationalFromIntegerTestMethod()
+        {
+            IntegerNumber test = new IntegerNumber(5);
+            RationalNumber res = test.DoRationalFromInteger();
+
+            RationalNumber expectedRes = new RationalNumber(5, 1);
+            Assert.IsTrue(expectedRes.denominator == res.denominator && res.numerator == expectedRes.numerator);
+
+        }
+
+        [TestMethod]
         public void InputDataTestMethodRational()
         {
             string line = "61/140";
@@ -106,32 +117,6 @@ namespace RationalIntegerUnitTest
         }
 
         [TestMethod]
-        public void AddingTestMethodIntegerToRational()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(29, 5);
-
-            RationalNumber res = integer.Adding(rational) as RationalNumber;
-            RationalNumber.Transform(res);
-            
-            Assert.IsTrue(expetedRes.denominator== res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void AddingTestMethodRationalToInteger()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(29, 5);
-
-            RationalNumber res = rational.Adding(integer) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
         public void AddingTestMethodIntegerToInteger()
         {
             IntegerNumber integer1 = new IntegerNumber(5);
@@ -151,32 +136,6 @@ namespace RationalIntegerUnitTest
             RationalNumber expetedRes = new RationalNumber(1, 1);
 
             RationalNumber res = rational1.Adding(rational2) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void SubstractionTestMethodIntegerToRational()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(21, 5);
-
-            RationalNumber res = integer.Substraction(rational) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void SubstractionTestMethodRationalToInteger()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(-21, 5);
-
-            RationalNumber res = rational.Substraction(integer) as RationalNumber;
             RationalNumber.Transform(res);
 
             Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
@@ -208,33 +167,6 @@ namespace RationalIntegerUnitTest
         }
 
         [TestMethod]
-        public void MultiplicationTestMethodIntegerToRational()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(4, 1);
-
-            RationalNumber res = integer.Multiplication(rational) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void MultiplicactionTestMethodRationalToInteger()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(4, 1);
-
-            RationalNumber res = rational.Multiplication(integer) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-
-        [TestMethod]
         public void MultiplicactionTestMethodIntegerToInteger()
         {
             IntegerNumber integer1 = new IntegerNumber(5);
@@ -254,32 +186,6 @@ namespace RationalIntegerUnitTest
             RationalNumber expetedRes = new RationalNumber(4, 25);
 
             RationalNumber res = rational1.Multiplication(rational2) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void DivisionTestMethodIntegerToRational()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(25, 4);
-
-            RationalNumber res = integer.Division(rational) as RationalNumber;
-            RationalNumber.Transform(res);
-
-            Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);
-        }
-
-        [TestMethod]
-        public void DivisionTestMethodRationalToInteger()
-        {
-            IntegerNumber integer = new IntegerNumber(5);
-            RationalNumber rational = new RationalNumber(4, 5);
-            RationalNumber expetedRes = new RationalNumber(4, 25);
-
-            RationalNumber res = rational.Division(integer) as RationalNumber;
             RationalNumber.Transform(res);
 
             Assert.IsTrue(expetedRes.denominator == res.denominator && res.numerator == expetedRes.numerator);

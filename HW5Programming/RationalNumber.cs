@@ -20,78 +20,26 @@ namespace RationalInteger
 
         public INumber Adding(INumber number)
         {
-            if(number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                return new RationalNumber(this.numerator * num.denominator + this.denominator * num.numerator, num.denominator * this.denominator);
-            }
-            else if(number.GetType() == typeof(IntegerNumber))
-            {
-                var n = number as IntegerNumber;
-                return new RationalNumber(this.denominator * n.number + this.numerator, this.denominator);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as RationalNumber;
+            return new RationalNumber(this.numerator * num.denominator + this.denominator * num.numerator, num.denominator * this.denominator);
         }
 
         public INumber Division(INumber number)
         {
-            if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                return new RationalNumber(this.numerator * num.denominator, this.denominator * num.numerator);
-            }
-            else if (number.GetType() == typeof(IntegerNumber))
-            {
-                var n = number as IntegerNumber;
-                var num = new RationalNumber(n.number, 1);
-                return this.Division(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as RationalNumber;
+            return new RationalNumber(this.numerator * num.denominator, this.denominator * num.numerator);
         }
 
         public INumber Multiplication(INumber number)
         {
-            if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                return new RationalNumber(this.numerator * num.numerator, num.denominator * this.denominator);
-            }
-            else if (number.GetType() == typeof(IntegerNumber))
-            {
-                var n = number as IntegerNumber;
-                var num = new RationalNumber(n.number, 1);
-                return this.Multiplication(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
+            var num = number as RationalNumber;
+            return new RationalNumber(this.numerator * num.numerator, num.denominator * this.denominator);
         }
 
         public INumber Substraction(INumber number)
         {
-            if (number.GetType() == typeof(RationalNumber))
-            {
-                var num = number as RationalNumber;
-                return new RationalNumber(this.numerator * num.denominator - this.denominator * num.numerator, num.denominator * this.denominator);
-            }
-            else if (number.GetType() == typeof(IntegerNumber))
-            {
-                var n = number as IntegerNumber;
-                var num = new RationalNumber(n.number, 1);
-                return this.Substraction(num);
-            }
-            else
-            {
-                throw new ArgumentException("Error!");
-            }
-            
+            var num = number as RationalNumber;
+            return new RationalNumber(this.numerator * num.denominator - this.denominator * num.numerator, num.denominator * this.denominator);
         }
 
         public override string ToString() => $"{numerator}/{denominator}";

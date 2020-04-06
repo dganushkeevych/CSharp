@@ -97,8 +97,12 @@ namespace RationalInteger
 
         public object Clone()
         {
-            return new TaskNum(this.numbers);
+            List<INumber> cloned = new List<INumber>();
+            foreach (INumber i in numbers)
+            {
+                cloned.Add(i);
+            }
+            return new TaskNum(cloned);
         }
-
     }
 }
