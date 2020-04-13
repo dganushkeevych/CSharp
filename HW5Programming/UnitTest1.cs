@@ -65,10 +65,10 @@ namespace RationalIntegerUnitTest
         }
 
         [TestMethod]
-        public void DoRationalFromIntegerTestMethod()
+        public void IntegerToDationalImplicitConversionTestMethod()
         {
             IntegerNumber test = new IntegerNumber(5);
-            RationalNumber res = test.DoRationalFromInteger();
+            RationalNumber res = new RationalNumber { numerator = test.number, denominator = 1 };
 
             RationalNumber expectedRes = new RationalNumber(5, 1);
             Assert.IsTrue(expectedRes.denominator == res.denominator && res.numerator == expectedRes.numerator);

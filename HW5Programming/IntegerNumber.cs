@@ -16,10 +16,10 @@ namespace RationalInteger
             number = Number;
         }
 
-        public RationalNumber DoRationalFromInteger()
-        {
-            return new RationalNumber(this.number, 1);
-        }
+        //public RationalNumber DoRationalFromInteger()
+        //{
+        //    return new RationalNumber(this.number, 1);
+        //}
 
         public INumber Adding(INumber number)
         {

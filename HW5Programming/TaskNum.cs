@@ -36,7 +36,7 @@ namespace RationalInteger
         public INumber Sum()
         {
             INumber res = new RationalNumber(0, 1);
-            foreach(var i in this.numbers)
+            foreach (var i in this.numbers)
             {
                 res = res.Adding(i);
             }
@@ -81,7 +81,9 @@ namespace RationalInteger
                 {
                     INumber newNum = new IntegerNumber();
                     newNum.InputData(line);
-                    task.numbers.Add(newNum);
+                    IntegerNumber intNum = newNum as IntegerNumber;
+                    RationalNumber ratNum = new RationalNumber { numerator = intNum.number, denominator = 1 };
+                    task.numbers.Add(ratNum);
                 }
             }
             return task;

@@ -18,6 +18,11 @@ namespace RationalInteger
             denominator = denom;
         }
 
+        public static implicit operator RationalNumber(IntegerNumber x)
+        {
+            return new RationalNumber { numerator = x.number, denominator = 1 };
+        }
+
         public INumber Adding(INumber number)
         {
             var num = number as RationalNumber;
