@@ -102,7 +102,7 @@ namespace RationalInteger
             List<INumber> cloned = new List<INumber>();
             foreach (INumber i in numbers)
             {
-                cloned.Add(i);
+                cloned.Add((INumber)i.Clone());
             }
             return new TaskNum(cloned);
         }

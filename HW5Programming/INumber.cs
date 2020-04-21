@@ -12,5 +12,6 @@ namespace RationalInteger
         INumber Division(INumber number);
         INumber Multiplication(INumber number);
         INumber Substraction(INumber number);
+        object Clone();
     }
 }

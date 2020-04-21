@@ -38,6 +38,7 @@ namespace RationalInteger
         public INumber Multiplication(INumber number)
         {
             var num = number as RationalNumber;
+            //перевірка
             return new RationalNumber(this.numerator * num.numerator, num.denominator * this.denominator);
         }
 
@@ -97,6 +98,11 @@ namespace RationalInteger
         public void OutputData(StreamWriter streamWriter)
         {
             streamWriter.WriteLine(this);
+        }
+
+        public object Clone()
+        {
+            return new RationalNumber(numerator = this.numerator, denominator = this.denominator);
         }
     }
 }

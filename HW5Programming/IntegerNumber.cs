@@ -10,7 +10,7 @@ namespace RationalInteger
     public class IntegerNumber : INumber, IInputOutput
     {
         public int number { get; set; }
-               
+
         public IntegerNumber(int Number = 0)
         {
             number = Number;
@@ -56,6 +56,11 @@ namespace RationalInteger
         public void OutputData(StreamWriter streamWriter)
         {
             streamWriter.WriteLine(this);
+        }
+
+        public object Clone()
+        {
+            return new IntegerNumber(number = this.number);
         }
     }
 }
