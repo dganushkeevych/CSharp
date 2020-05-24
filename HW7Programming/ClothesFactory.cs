@@ -3,9 +3,9 @@ using Clothes_Factory.Products;
 
 namespace Clothes_Factory
 {
-    abstract class ClothesFactory
+    interface ClothesFactory
     {
-        public abstract Shirt CreateShirt();
-        public abstract Trousers CreateTrousers();
+        Shirt CreateShirt();
+        Trousers CreateTrousers();
     }
 }

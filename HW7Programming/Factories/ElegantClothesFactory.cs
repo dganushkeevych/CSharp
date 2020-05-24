@@ -5,12 +5,12 @@ namespace Clothes_Factory.Factories
 {
     class ElegantClothesFactory : ClothesFactory
     {
-        public override Shirt CreateShirt()
+        public Shirt CreateShirt()
         {
             return new DressShirt();
         }
 
-        public override Trousers CreateTrousers()
+        public Trousers CreateTrousers()
         {
             return new SuitTrousers();
         }
